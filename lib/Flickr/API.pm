@@ -86,6 +86,7 @@ sub execute_request {
 
 	$request->{api_args}->{method}  = $request->{api_method};
 	$request->{api_args}->{api_key} = $self->{api_key};
+	delete $request->{api_args}->{api_sig} if exists $request->{api_args}->{api_sig};
 
 	if (defined($self->{api_secret}) && length($self->{api_secret})){
 
